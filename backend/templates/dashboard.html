@@ -1,0 +1,19 @@
+Welcome to your dashboard!
+
+{% if classes_as_teacher %}
+<p>Classes as Teacher:</p>
+    <ul>
+    {% for class in classes_as_teacher %}
+        <li>{{ class.name }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% if class_as_student %}
+<p>Classes as Student:</p>
+    <ul>
+    {% for class in class_as_student %}
+        <li>{{ class.name }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}

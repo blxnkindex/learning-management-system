@@ -1,0 +1,12 @@
+.class-content {
+    height: 100%;
+    width: calc(100vw - 200px);
+    padding: 10px;
+
+}
+
+.parent {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

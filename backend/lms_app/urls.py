@@ -1,0 +1,55 @@
+from django.urls import path
+
+from . import views
+
+# List of all URLs in backend.
+# If URL has parameter it is denoted with <>
+
+urlpatterns = [    
+    path('login/', views.login_view.as_view(), name="login"),
+    path('register/', views.register_view.as_view(), name="register"),
+    path('logout/', views.logout_view.as_view(), name="logout"),
+    path('user/<int:id>/', views.user.as_view(), name="user"),
+    path('user/', views.user.as_view(), name="user"),
+    path('user/achievements/<int:id>/', views.user_acheivement_view.as_view(), name="user"),
+    path('classes/', views.classes.as_view(), name="classes"),
+    path('classes/<int:id>/', views.classes.as_view(), name="classes"),
+    path('classes/<int:id>/students/', views.class_students.as_view(), name="class_students"),
+    path('user_classes/<int:id>/', views.user_classes.as_view(), name="user_classes"),
+    path('create_class/', views.create_class_view.as_view(), name="create_class"),
+    path('join_class/', views.join_class_view.as_view(), name="join_class"),
+    path('class_start/', views.class_start_view.as_view(), name="class_start"),
+    path('class_stop/', views.class_stop_view.as_view(), name="class_stop"),
+    path('messages_send/', views.messages_send_view.as_view(), name="messages_send"),
+    path('messages_get/<int:class_id>/', views.messages_get_view.as_view(), name="messages_get"),
+    path('materials/', views.materials_view.as_view(), name="materials"),
+    path('materials_list/<int:class_id>/', views.materials_list_view.as_view(), name="materials_list"),
+    path('materials/<str:filename>/', views.material_get_view.as_view(), name="materials"),
+    path('forum/', views.forum_post_view.as_view(), name="forum_post"),
+    path('forum/<int:class_id>/', views.forum_get_view.as_view(), name="forum_get"),
+    path('answer/', views.answer_post_view.as_view(), name="answer_post"),
+    path('answer/<int:forum_id>/', views.answer_get_view.as_view(), name="answer_get"),
+    path('color_get/', views.color_get_view.as_view(), name="color_get"),
+    path('color_set/', views.color_set_view.as_view(), name="color_set"),    
+    path('tags_get/<int:class_id>/', views.tags_get_view.as_view(), name="tags_get"),
+    path('tag_set/', views.tag_set_view.as_view(), name="tag_set"),
+    path('recommendations/', views.recommendations_view.as_view(), name="recommendations"),
+    path('profile_picture/', views.profile_picture_view.as_view(), name='profile_picture'),
+    path('profile_picture/<str:filename>/', views.profile_picture_get_view.as_view(), name="profile_picture"),
+    path('assignment_create/', views.assignment_create_view.as_view(), name="assignment_create"),
+    path('assignment_get/<int:class_id>/', views.assignment_get_view.as_view(), name="assignment_get"),
+    path('submission_create/', views.submission_create_view.as_view(), name="submission_create"),    
+    path('submissions_get/<int:assignment_id>/', views.submissions_get_view.as_view(), name="submissions_get"),
+    path('submissions_download/<str:filename>/', views.submissions_download_view.as_view(), name="submissions_download"),
+    path('mark/<int:submission_id>/', views.mark_view.as_view(), name="mark"),
+    path('quiz_create/', views.quiz_create_view.as_view(), name="quiz_create"),
+    path('quiz_get/<int:class_id>/', views.quiz_get_view.as_view(), name="quiz_get"),
+    path('question_create/', views.question_create_view.as_view(), name="question_create"),
+    path('question_get/<int:quiz_id>/', views.question_get_view.as_view(), name="question_get"),
+    path('result_create/', views.result_create_view.as_view(), name="result_create"),
+    path('result_get/<int:quiz_id>/', views.result_get_view.as_view(), name="result_get"),
+    path('rating_create/', views.rating_create_view.as_view(), name="rating_create"),
+    path('rating_get/<int:class_id>/', views.rating_get_view.as_view(), name="rating_get"),
+    path('class_highest_rated/', views.class_highest_rated_view.as_view(), name="class_highest_rated"),
+    path('class_most_popular/', views.class_most_popular_view.as_view(), name="class_most_popular")
+]
